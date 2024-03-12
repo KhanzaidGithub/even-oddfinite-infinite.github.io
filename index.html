@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even & Odd, Finite & InFinite</title>
+</head>
+
+<body>
+    <!-- Create two buttons with name, (Even Or ODD), (Finite Or Infinite)
+
+    1. When we click on Even or Odd number it will display a msg that what do you want to print even or odd, if user
+    chosen any 1 of them than it will display an other prompt with, How many "Even Or Odd" Numbers do you want to print,
+    after taking range display the number according to.
+
+    2. When we click on Finite or Infinite number it will display 2 prompt to to take 2 number so it divide them, if the
+    answer of the division is possible so the answer will be shown in alert, and if it is not possible means is
+    infinite, so it displays a msg that division is not possible due to infinite value -->
+    <center>
+        <button onclick="evenorodd()">Even Or ODD</button>
+        <button onclick="finiteOrInfinite()">Finite Or Infinite</button>
+    </center>
+    <script>
+        function evenorodd() {
+           let choice = prompt("What do you want to print? Enter 'even' or 'odd':");
+           if (choice === 'even' || choice === 'odd') {
+               let count = parseInt(prompt(`How many ${choice} numbers do you want to print?`));
+               let numbers = [];
+               for (let i = 1; numbers.length < count; i++) {
+                   if ((choice === 'even' && i % 2 === 0) || (choice === 'odd' && i % 2 !== 0)) {
+                       numbers.push(i);
+                   }
+               }
+               alert(`The first ${count} ${choice} numbers are: ${numbers.join(', ')}`);
+           } else {
+               alert('Invalid choice. Please enter either "even" or "odd".');
+           }
+       }
+
+       // Finit & Infinite Function
+       function finiteOrInfinite() {
+            let num1 = parseFloat(prompt("Enter the first number:"));
+            let num2 = parseFloat(prompt("Enter the second number:"));
+            let result = num1 / num2;
+
+            if (Number.isFinite(result)) {
+                alert(`The result of ${num1} divided by ${num2} is: ${result}`);
+            } else {
+                alert("Division is not possible due to infinite value.");
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
